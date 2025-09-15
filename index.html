@@ -4,443 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carlos Rivera | Portafolio</title>
+    <!-- Enlace a la hoja de estilos principal -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Enlace a la hoja de estilos responsive -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Enlace a Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Variables de colores */
-        :root {
-            --primary-color: #2d5b7c;
-            --secondary-color: #38b6ff;
-            --accent-color: #ff6b6b;
-            --text-color: #333;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-        }
-
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 15px auto;
-            border-radius: 2px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header y Navegación */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-left: 30px;
-        }
-
-        .nav-link {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            color: var(--secondary-color);
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding-top: 150px;
-            padding-bottom: 80px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--secondary-color);
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--text-color);
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .skill-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        /* Projects Section */
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-weight: bold;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .project-description {
-            margin-bottom: 15px;
-            color: var(--text-color);
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .tech-tag {
-            background: var(--light-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-label {
-            font-weight: 500;
-        }
-
-        .form-input, .form-textarea {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .form-textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 0 20px;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                background: white;
-                width: 80%;
-                height: calc(100vh - 80px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.5s;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-menu.active {
-                right: 0;
-            }
-
-            .nav-item {
-                margin: 20px 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -479,20 +50,20 @@
             <h2 class="section-title">Sobre Mí</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Soy un estudiante de Ingeniería de Sistemas apasionado por la tecnología y el desarrollo de software. Estudio Actualmente en la Universidad Privada Domingo Savio</p>
-                    <p>Actualmente, me encuentro en constante aprendizaje, explorando nuevas tecnologías y metodologías de desarrollo. </p>
+                    <p>Soy un estudiante de Ingeniería de Sistemas apasionado por la tecnología y el desarrollo de software. Mi objetivo es crear soluciones innovadoras que resuelvan problemas reales y mejoren la experiencia de los usuarios.</p>
+                    <p>Actualmente, me encuentro en constante aprendizaje, explorando nuevas tecnologías y metodologías de desarrollo. Disfruto trabajando en proyectos desafiantes que me permitan expandir mis conocimientos y habilidades.</p>
+                    <p>Cuando no estoy programando, me gusta investigar sobre tendencias tecnológicas, participar en comunidades de desarrollo y contribuir a proyectos de código abierto.</p>
                 </div>
                 <div class="about-image">
-                    <div style="background-color: #2d5b7c; height: 300px; width: 250px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                        Tu foto aquí
-                    </div>
+                    <!-- Reemplaza "images/foto-perfil.jpg" con la ruta de tu foto -->
+                    <img src="images/foto-perfil.jpg" alt="Carlos Rivera - Estudiante de Ingeniería de Sistemas">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="habilidades" class="section" style="background-color: #f8f9fa;">
+    <section id="habilidades" class="section skills-section">
         <div class="container">
             <h2 class="section-title">Habilidades Técnicas</h2>
             <div class="skills-container">
@@ -508,7 +79,7 @@
                         <i class="fas fa-server"></i>
                     </div>
                     <h3 class="skill-title">Desarrollo Backend</h3>
-                    <p>Node.js, Python, Bases de datos</p>
+                    <p>Node.js, Express, Python, Django, Bases de datos</p>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">
@@ -529,12 +100,15 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="proyectos" class="section">
+    <section id="proyectos" class="section projects-section">
         <div class="container">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-container">
                 <div class="project-card">
-                    <div class="project-image">Imagen del Proyecto</div>
+                    <div class="project-image">
+                        <!-- Reemplaza con la imagen de tu proyecto -->
+                        <img src="images/proyecto-1.jpg" alt="Sistema de Gestión">
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Sistema de Gestión</h3>
                         <p class="project-description">Sistema web desarrollado para la gestión de recursos y procesos empresariales.</p>
@@ -550,7 +124,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image">Imagen del Proyecto</div>
+                    <div class="project-image">
+                        <!-- Reemplaza con la imagen de tu proyecto -->
+                        <img src="images/proyecto-2.jpg" alt="E-commerce">
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">E-commerce</h3>
                         <p class="project-description">Plataforma de comercio electrónico con carrito de compras y pasarela de pagos.</p>
@@ -566,7 +143,10 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-image">Imagen del Proyecto</div>
+                    <div class="project-image">
+                        <!-- Reemplaza con la imagen de tu proyecto -->
+                        <img src="images/proyecto-3.jpg" alt="App de Tareas">
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">App de Tareas</h3>
                         <p class="project-description">Aplicación móvil para la gestión de tareas diarias con recordatorios y categorías.</p>
@@ -585,7 +165,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="section" style="background-color: #f8f9fa;">
+    <section id="contacto" class="section contact-section">
         <div class="container">
             <h2 class="section-title">Contacto</h2>
             <div class="contact-container">
@@ -596,7 +176,7 @@
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>carlos.rivera.melgarejo16@gmail.com</p>
+                            <p>carlos.rivera@ejemplo.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -605,7 +185,7 @@
                         </div>
                         <div>
                             <h3>Teléfono</h3>
-                            <p>+591 70010781</p>
+                            <p>+57 123 456 7890</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -614,11 +194,11 @@
                         </div>
                         <div>
                             <h3>Ubicación</h3>
-                            <p>Santa Cruz de la Sierra, Bolivia</p>
+                            <p>Bogotá, Colombia</p>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name" class="form-label">Nombre</label>
                         <input type="text" id="name" class="form-input" required>
@@ -648,26 +228,12 @@
             </div>
             <p>Conectemos en las redes sociales</p>
             <div class="copyright">
-                <p>&copy; 2025 Carlos Rivera. Todos los derechos reservados.</p>
+                <p>&copy; 2023 Carlos Rivera. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // JavaScript para el menú hamburguesa
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Cerrar el menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <!-- Enlace al archivo JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
